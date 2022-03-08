@@ -27,10 +27,25 @@ SOFTWARE.
 */
 package com.unitbv.beans;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 
 @Configuration
 @ComponentScan(basePackages = {"com.unitbv.beans"} )
 public class HumanAppCfg {
+    @Value("${book.title}")
+    @Bean
+    public Book book () {
+        return new Book("${book.title}");
+    }
+
+    @Bean
+    @Autowired
+    public Person person(Item item) {
+        return new Person(item);
+    }
 }
