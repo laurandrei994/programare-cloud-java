@@ -40,4 +40,9 @@ public class FunBean {
     private Logger logger = LoggerFactory.getLogger(FunBean.class);
 
     private DepBean depBean;
+
+    @Autowired
+    public void setDepBean(DepBean depBean) {
+        this.depBean = depBean;
+    }
 }

@@ -28,6 +28,8 @@ SOFTWARE.
 package com.unitbv.beansnaming;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class DependantBeanImpl implements DependantBean {
     private SimpleBean simpleBean;
 
