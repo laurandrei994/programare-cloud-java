@@ -27,11 +27,13 @@ SOFTWARE.
 */
 package com.unitbv.beans;
 
-public class Book implements Item {
+import org.springframework.beans.factory.annotation.Value;
 
+public class Book implements Item {
+    @Value("{book.title}")
     private String title;
 
-    public Book(String title) {
+    public Book() {
         this.title = title;
     }
 

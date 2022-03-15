@@ -37,10 +37,9 @@ import org.springframework.core.env.Environment;
 @Configuration
 @ComponentScan(basePackages = {"com.unitbv.beans"} )
 public class HumanAppCfg {
-    @Value("${book.title}")
     @Bean
     public Book book () {
-        return new Book("${book.title}");
+        return new Book();
     }
 
     @Bean
