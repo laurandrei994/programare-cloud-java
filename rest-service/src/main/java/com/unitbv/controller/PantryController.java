@@ -23,4 +23,32 @@ public class PantryController {
     public ResponseEntity<List<Ingredient>> getAllIngredients(){
         return ResponseEntity.ok(pantryService.getAllIngredients());
     }
+
+    @PostMapping
+    public ResponseEntity<?> saveIngredient(@RequestBody Ingredient ingredient) {
+        try{
+            return ResponseEntity.ok(pantryService.saveIngredient(ingredient));
+        } catch (Exception e) {
+            return ResponseEntity.status(409).body(e.getMessage());
+        }
+    }
+
+    @PutMapping("/ingredient")
+    public ResponseEntity<?> updateIngredient(@RequestBody Ingredient ingredient) {
+        try {
+            return ResponseEntity.ok(pantryService.updateIngredient(ingredient));
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("/ingredient/{name}")
+    public ResponseEntity<?> deleteIngredient(@PathVariable String name) {
+        try {
+            return ResponseEntity.ok(pantryService.deleteIngredient(name));
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body(e.getMessage());
+        }
+    }
+
 }
