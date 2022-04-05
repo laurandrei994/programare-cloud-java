@@ -24,6 +24,7 @@ server:
   address: 0.0.0.0
 
 # Discovery Server Access
+#TODO here you add configurations for eureka client
 eureka:
   client:
     registerWithEureka: true
